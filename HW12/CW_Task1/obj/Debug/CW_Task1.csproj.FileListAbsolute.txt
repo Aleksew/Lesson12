@@ -1,0 +1,7 @@
+D:\ITVDN\Lesson12\HW12\CW_Task1\bin\Debug\CW_Task1.exe.config
+D:\ITVDN\Lesson12\HW12\CW_Task1\bin\Debug\CW_Task1.exe
+D:\ITVDN\Lesson12\HW12\CW_Task1\bin\Debug\CW_Task1.pdb
+D:\ITVDN\Lesson12\HW12\CW_Task1\obj\Debug\CW_Task1.csproj.AssemblyReference.cache
+D:\ITVDN\Lesson12\HW12\CW_Task1\obj\Debug\CW_Task1.csproj.CoreCompileInputs.cache
+D:\ITVDN\Lesson12\HW12\CW_Task1\obj\Debug\CW_Task1.exe
+D:\ITVDN\Lesson12\HW12\CW_Task1\obj\Debug\CW_Task1.pdb

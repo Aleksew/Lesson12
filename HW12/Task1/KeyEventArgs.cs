@@ -4,12 +4,11 @@ namespace Task1
 {
     public class KeyEventArgs : EventArgs
     {
-        private char pressedKey { get; }
-
-        public  KeyEventArgs(char simbol)
+        public KeyEventArgs(char pressedKey)
         {
-            pressedKey = simbol;
-            Console.WriteLine($"KeyEventArgs {simbol}");
+            PressedKey = pressedKey;
         }
+        public char PressedKey { get; private set; }
     }
 }
+

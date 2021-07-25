@@ -10,12 +10,12 @@ using System.Runtime.InteropServices;
 //o событие типа EventHandler с именем PressedKeyEventHandler, закрытого KeyEventArgs. 
 //o	Создайте метод PressKeyEvent, принимающий char, запускающий выполнение события и передающий далее значение полученного char (помещенного в KeyEventArgs).
 //o Метод Start, обращающийся к консоли для считывания нажатой клавиши. Если нажата любая клавиша кроме q (в любом регистре и с учетом кириллицы), должно запускаться событие. 
-//    Иначе в цикле продолжается запрос на ввод символа. Если введен q – выполняется очистка экрана консоли и выводится на экран красным цветом строка “You are exiting the program!”.
+//  Иначе в цикле продолжается запрос на ввод символа. Если введен q – выполняется очистка экрана консоли и выводится на экран красным цветом строка “You are exiting the program!”.
 //•	В классе Program создайте метод PressedKeyHandler, который может быть подписан на событие PressedKeyEventHandler. Задача метода:
 //o Установить максимально допустимый для системы размер окна консоли по ширине и высоте.
 //o	Очистить экран консоли.
 //o	Изменить цвет текста в консоли случайным образом, но так, чтобы он не повторялся с предыдущим цветом текста консоли. 
-//o	Вывести на экран максимально возможное для данного \\\\'экрана консоли количество символов, который был нажат пользователем на клавиатуре.
+//o	Вывести на экран максимально возможное для данного экрана консоли количество символов, который был нажат пользователем на клавиатуре.
 //В методе Main создайте экземпляр класса Keyboard, подпишите на его событие соответствующий метод и запустите метод Start.
 
 namespace Task1
@@ -28,28 +28,9 @@ namespace Task1
         static void Main(string[] args)
         {
             Keyboard keyboard = new Keyboard();
-            keyboard.PressedKeyEventHandler += PressedKeyHandler;
-            Start();
-        }
-        public static void Start()
-        {
-            while (true)
-            {
-                var input = Console.ReadKey();
 
-                if (input.Key != ConsoleKey.Q)
-                {
-                    PressedKeyHandler(input.KeyChar);
-                }
-                else
-                {
-                    //Console.Clear();
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("You are exiting the program!");
-                    break;
-                };
-            }
-            Console.ReadKey();
+            keyboard.PressedKeyEventHandler += new EventHandler<KeyEventArgs>(PressedKeyHandler);
+            keyboard.Start();
         }
 
         public static void PressedKeyHandler(char simbol)
@@ -57,12 +38,12 @@ namespace Task1
             Process p = Process.GetCurrentProcess();
             ShowWindow(p.MainWindowHandle, 3);
 
-            //Console.Clear();
+            Console.Clear();
             RandomColorConsole();
 
             for (int i = 0; i < Console.LargestWindowHeight; i++)
             {
-                Console.Write(new string(simbol, Console.LargestWindowWidth ));
+                Console.Write(new string(simbol, Console.LargestWindowWidth));
             }
             Console.SetCursorPosition(0, 0);
         }
