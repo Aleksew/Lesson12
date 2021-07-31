@@ -2,7 +2,6 @@
 
 namespace Task1
 {
-    public delegate void EventHandler<KeyEventArgs>(char simbol);
 
     public class Keyboard
     {
@@ -10,7 +9,7 @@ namespace Task1
 
         public void PressedKeyEvent(char simbol)
         {
-            PressedKeyEventHandler(simbol);
+            PressedKeyEventHandler(this, new KeyEventArgs(simbol));
         }
 
         public void Start()

@@ -24,7 +24,6 @@ namespace CW_Task1
         public void InvokeEvent()
         {
             humanEvent?.Invoke();
-            Console.WriteLine("InvokeEvent");
         }
     }
 }

@@ -29,11 +29,11 @@ namespace Task1
         {
             Keyboard keyboard = new Keyboard();
 
-            keyboard.PressedKeyEventHandler += new EventHandler<KeyEventArgs>(PressedKeyHandler);
+            keyboard.PressedKeyEventHandler += PressedKeyHandler;
             keyboard.Start();
         }
 
-        public static void PressedKeyHandler(char simbol)
+        public static void PressedKeyHandler(object sender, KeyEventArgs e)
         {
             Process p = Process.GetCurrentProcess();
             ShowWindow(p.MainWindowHandle, 3);
@@ -43,7 +43,7 @@ namespace Task1
 
             for (int i = 0; i < Console.LargestWindowHeight; i++)
             {
-                Console.Write(new string(simbol, Console.LargestWindowWidth));
+                Console.Write(new string(e.PressedKey, Console.LargestWindowWidth));
             }
             Console.SetCursorPosition(0, 0);
         }
